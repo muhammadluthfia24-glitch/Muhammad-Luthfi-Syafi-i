@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luthfi Portfolio</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.bg-animation span{
+    position:absolute;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    background:linear-gradient(45deg,#00f0ff,#7a00ff);
+    animation:float 10s infinite alternate;
+    opacity:0.15;
+    filter:blur(100px);
+}
+
+.bg-animation span:nth-child(1){
+    top:-100px;
+    left:-100px;
+}
+
+.bg-animation span:nth-child(2){
+    bottom:-100px;
+    right:-100px;
+    animation-duration:15s;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0px) translateX(0px);
+    }
+    to{
+        transform:translateY(60px) translateX(40px);
+    }
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    background:linear-gradient(to right,#00f0ff,#7a00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00f0ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 10%;
+    flex-direction:column;
+}
+
+.hero img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid rgba(255,255,255,0.2);
+    margin-bottom:30px;
+    box-shadow:0 0 50px rgba(0,240,255,0.3);
+    animation:zoom 4s infinite alternate;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.05);
+    }
+}
+
+.hero h1{
+    font-size:70px;
+    line-height:1.2;
+    background:linear-gradient(to right,#ffffff,#00f0ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    color:#cfcfcf;
+    line-height:1.8;
+}
+
+/* BUTTON */
+
+.btn{
+    margin-top:40px;
+    display:inline-block;
+    padding:14px 35px;
+    border-radius:50px;
+    background:linear-gradient(45deg,#00f0ff,#7a00ff);
+    color:white;
+    text-decoration:none;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px rgba(0,240,255,0.4);
+}
+
+/* SECTION */
+
+section{
+    padding:100px 10%;
+}
+
+.title{
+    font-size:45px;
+    margin-bottom:50px;
+    text-align:center;
+}
+
+/* GLASS CARD */
+
+.glass{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:40px;
+    transition:0.4s;
+}
+
+.glass:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px rgba(0,240,255,0.1);
+}
+
+/* ABOUT */
+
+.about p{
+    line-height:2;
+    color:#d8d8d8;
+    text-align:center;
+}
+
+/* EXPERIENCE */
+
+.timeline{
+    display:grid;
+    gap:30px;
+}
+
+.timeline .glass h3{
+    margin-bottom:10px;
+}
+
+/* PROJECT */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card img{
+    width:100%;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.project-card p{
+    color:#d6d6d6;
+    line-height:1.7;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.social{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+
+.social a{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    font-size:22px;
+    color:white;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.social a:hover{
+    transform:translateY(-8px);
+    background:linear-gradient(45deg,#00f0ff,#7a00ff);
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px;
+    text-align:center;
+    color:#8a8a8a;
+}
+
+/* SCROLL ANIMATION */
+
+.fade{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    nav{
+        padding:20px 5%;
+    }
+
+    nav ul{
+        gap:15px;
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="bg-animation">
+    <span></span>
+    <span></span>
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">Luthfi.</div>
+
+    <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#aspiring">Aspiring</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#project">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero fade" id="home">
+
+    <img src="lutf 4x6.jpg" alt="profile">
+
+    <h1>Muhammad Luthfi Syafi I</h1>
+
+    <p>
+        Undergraduate Student of Piping Engineering 
+        | Future Project Engineer
+    </p>
+
+    <a href="#project" class="btn">
+        Explore My Portfolio
+    </a>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about fade" id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="glass">
+
+        <p>
+             Saya adalah mahasiswa Teknik Perpipaan di Politeknik Negeri Pembuatan Kapal Surabaya, dan saat ini sedang memperdalam pemahaman saya mengenai sistem perpipaan industri, mekanika fluida, perpindahan panas, dan desain teknik. Saya juga memiliki keterampilan dasar dalam penggunaan AutoCAD, pembuatan gambar isometrik perpipaan, serta perhitungan fluida. Saya sangat tertarik dengan industri energi dan terus berupaya meningkatkan keterampilan teknis dan profesional saya. 
+        </p>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="aspiring"></section>
+
+    <h2 class="title">Piping Superintendent</h2>
+
+    <div class="timeline">
+
+        <div class="glass">
+            <h3>Aspiring Piping Superintendent</h3>
+
+            <p>
+                Halo! Saya Muhammad Luthfi, seorang mahasiswa Teknik Perpipaan yang aktif di Politeknik Negeri Pembuatan Kapal Surabaya. Saya bercita-cita menjadi seorang Superintendent Perpipaan. Saya tidak hanya menguasai teori dasar sistem perpipaan, tetapi juga memiliki visi kepemimpinan, ketelitian tinggi, dan keterampilan manajerial di bidang ini. Saya tertarik untuk mempelajari desain, pemasangan, inspeksi, dan pemeliharaan sistem perpipaan di berbagai industri, seperti minyak dan gas, petrokimia, serta pembangkit listrik.
+
+Dengan semangat belajar yang kuat, saya secara aktif mengembangkan kompetensi teknis seperti membaca Diagram Pipa dan Instrumentasi (P&ID), memahami standar internasional (ASME, ASTM), dan menguasai perangkat lunak desain. Selain itu, saya juga mengembangkan keterampilan komunikasi dan koordinasi tim, karena peran Superintendent Pipa menuntut pengawasan proyek, pengambilan keputusan yang cepat, serta memastikan proyek berjalan sesuai jadwal, anggaran, dan standar keselamatan.
+
+Berorientasi pada hasil dan keselamatan, mahasiswa ini termotivasi untuk terus berkembang melalui pengalaman lapangan, pelatihan profesional, dan sertifikasi pendukung. Tujuan akhir adalah menjadi pemimpin yang mampu mengelola proyek pipa secara efektif, efisien, dan bertanggung jawab.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section class="fade" id="education">
+
+    <h2 class="title">Education</h2>
+
+    <div class="timeline">
+
+        <div class="glass">
+            <section class="fade" id="education">
+
+
+    <div class="timeline">
+
+        <div class="glass">
+            <h3>Politeknik Perkapalan Negeri Surabaya</h3>
+
+            <p>
+                Program Studi (D4) Teknik Peripaan
+                — Mempelajari sistem perpipaan industri, mekanika fluida, perpindahan panas, perancangan perpipaan, pemilihan bahan, serta standar teknik seperti ASME dan ASTM. 
+                Selain itu, juga mempelajari gambar isometrik perpipaan, interpretasi P&ID, serta perangkat lunak teknik dasar untuk aplikasi industri.
+            </p>
+        </div>
+
+        <div class="glass">
+            <h3>Senior High School</h3>
+
+            <p>
+                SMA — MIPA
+            </p>
+        </div>
+
+        <div class="glass">
+            <h3>Junior High School</h3>
+
+            <p>
+                SMP — MIPA
+            </p>
+        </div>
+
+        <div class="glass">
+            <h3>Elementary School</h3>
+
+            <p>
+                SD — FOOTBALL SCHOOL
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+<!-- PROJECT -->
+
+<section class="fade" id="project">
+
+    <h2 class="title">My Experience</h2>
+
+    <div class="project-grid">
+
+        <div class="glass project-card">
+
+            <h3>Intership At PT. JGC INDONESIA </h3>
+
+            <p>
+              Saya merupakan mahasiswa magang sebagai Piping Engineer di PT JGC Indonesia, sebuah perusahaan EPC (Engineering, Procurement, and Construction) yang bergerak di bidang proyek industri seperti oil & gas, petrokimia, LNG, dan power plant. Dalam posisi ini, saya mempelajari proses perancangan sistem perpipaan agar aliran fluida seperti gas, cairan, dan steam dapat berjalan dengan aman, efisien, serta sesuai standar engineering internasional. Selama magang, saya belajar membaca dokumen teknik seperti P&ID, isometric drawing, dan general arrangement drawing, serta membantu pengecekan desain perpipaan, memahami routing pipa, pipe support, dan penggunaan software engineering seperti AutoCAD dan PDMS/E3D. Saya juga berkoordinasi dengan berbagai disiplin engineering lain seperti process, mechanical, dan structural sehingga pengalaman ini membantu meningkatkan kemampuan teknis, pemahaman proyek EPC, serta keterampilan profesional di bidang piping engineering.
+
+        </div>
+
+        <div class="glass project-card">
+
+
+            <h3> Academic Project</h3>
+
+            <p>
+                Dalam proyek akademik, saya menggunakan AutoCAD untuk membuat gambar teknik 2D dan dasar desain 3D yang berkaitan dengan bidang engineering. Saya mempelajari pembuatan dan pengeditan technical drawing, pengaturan layer, dimensioning, serta penyusunan gambar sesuai standar teknik. Penggunaan AutoCAD membantu meningkatkan kemampuan dalam visualisasi desain, ketelitian gambar, dan pemahaman dasar perancangan teknik secara digital.
+            </p>
+
+        </div>
+
+        <div class="glass project-card">
+
+
+            <h3>Intern Staff at External Relation Departement </h3>
+
+            <p>
+                Sebagai Staff Muda pada divisi Hubungan Eksternal di himpunan mahasiswa, saya berperan dalam membantu menjalin komunikasi dan kerja sama dengan pihak eksternal seperti organisasi lain, perusahaan, maupun institusi pendidikan. Saya turut mendukung pelaksanaan kegiatan dan program kerja melalui koordinasi, penyusunan administrasi, serta pengelolaan hubungan profesional untuk memperluas relasi dan meningkatkan citra organisasi.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact fade" id="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <p>
+        Let's connect through social media
+    </p>
+
+    <div class="social">
+
+        <a href="https://wa.me/6281221659968" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.instagram.com/luthfiaksimaraja_?igsh=c3FqMzRicGZndmVm" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/muhammad-luthfi-syafi-i-808206322?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Luthfi Portfolio
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+
+    fades.forEach(el => {
+
+        const top = el.getBoundingClientRect().top;
+        const visible = window.innerHeight - 100;
+
+        if(top < visible){
+            el.classList.add('show');
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
